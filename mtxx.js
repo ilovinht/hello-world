@@ -15,7 +15,7 @@ TG频道群：https://t.me/py996
 
 [rewrite_local]
 
-^https:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json url script-response-body https://raw.githubusercontent.com/ilovinht/hello-world/master/mtxx.js
+^https:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json.+ url script-response-body https://raw.githubusercontent.com/ilovinht/hello-world/master/mtxx.js
 
 [mitm] 
 
@@ -25,13 +25,13 @@ hostname = api-sub.meitu.com
 
 *******************************/
 
-var objs = JSON.parse($response.body);
+var obj = JSON.parse($response.body);
 
     obj = {
   "code" : 0,
   "message" : "success",
   "data" : {
-    "account_id" : objs.data.account_id,
+    "account_id" : obj.data.account_id,
     "is_vip" : true,
     "limit_type" : 0,
     "have_valid_contract" :true,
@@ -41,8 +41,9 @@ var objs = JSON.parse($response.body);
     "in_trial_period" : false,
     "account_type" : 2
   },
-  "request_id" : objs.request_id,
+  "request_id" : obj.request_id,
   "success" : true,
   "error_code" : "00000" 
 }
+if (consoleLog) console.log("Modified Body:\n" + JSON.stringify(obj));
 $done({body : JSON.stringify(obj)});
