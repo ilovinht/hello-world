@@ -32,7 +32,7 @@ var obj = JSON.parse($response.body);
     "show_renew_flag" : false,
     "show_renew_flag_abroad" : false,
     "in_trial_period" : false,
-    "account_type" : 2
+    "account_type" : 1
   },
   "request_id" : obj.request_id,
   "success" : true,
