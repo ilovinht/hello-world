@@ -45,5 +45,5 @@ var obj = JSON.parse($response.body);
   "success" : true,
   "error_code" : "00000" 
 }
-if (consoleLog) console.log("Modified Body:\n" + JSON.stringify(obj));
+console.log("Modified Body:\n" + JSON.stringify(obj));
 $done({body : JSON.stringify(obj)});
